@@ -1,12 +1,16 @@
-// Somos SportsBSAS una tienda para comprar productos
+const cantidadCamisetasInput = document.getElementById('cantidadCamisetas');
+const cantidadGorrasInput = document.getElementById('cantidadGorras');
+const calcularCostoButton = document.getElementById('calcularCosto');
+const resultadoDiv = document.getElementById('resultado');
 
+// la lista de productos
 const productos = [
     { nombre: 'Camisetas', precio: 300 },
     { nombre: 'Gorras', precio: 150 },
-    // estos son mis productos
+    // Agrega más productos aquí
 ];
 
-// funcion para calcular el costo 
+// function calcular el costo total
 function calcularCostoTotal(productosSeleccionados) {
     let costoTotal = 0;
     for (const producto of productosSeleccionados) {
@@ -15,30 +19,21 @@ function calcularCostoTotal(productosSeleccionados) {
     return costoTotal;
 }
 
-// alerta para mostrar el costo
+// resultado dom
 function mostrarResultado(costoTotal) {
-    alert(`El costo total de su compra en SportsBuenosAires es de: $${costoTotal}`);
+    resultadoDiv.innerHTML = `El costo total de su compra en SportsBuenosAires es de: $${costoTotal}`;
 }
 
-//  funcion para que el usuario ingrese 
-function interactuarConUsuario() {
-    const productosSeleccionados = [];
-    for (const producto of productos) {
-        const cantidad = parseInt(prompt(`Hola! ingrese la cantidad de "${producto.nombre}" que quiere comprar porfavor`));
-        if (!isNaN(cantidad) && cantidad > 0) {
-            producto.cantidad = cantidad;
-            productosSeleccionados.push(producto);
-        } else {
-            alert('La cantidad esta mal, intentelo de nuevo porfavor - SportsBSAS');
-        }
-    }
+// manejador de evento para el botón de cálculo
+calcularCostoButton.addEventListener('click', function() {
+    const cantidadCamisetas = parseInt(cantidadCamisetasInput.value) || 0;
+    const cantidadGorras = parseInt(cantidadGorrasInput.value) || 0;
 
-    if (productosSeleccionados.length > 0) {
-        const costoTotal = calcularCostoTotal(productosSeleccionados);
-        mostrarResultado(costoTotal);
-    } else {
-        alert('no se encontro ningun producto, intentelo nuevamente porfavor -SportsBSAS');
-    }
-}
+    const productosSeleccionados = [
+        { nombre: 'Camisetas', precio: 300, cantidad: cantidadCamisetas },
+        { nombre: 'Gorras', precio: 150, cantidad: cantidadGorras }
+    ];
 
-interactuarConUsuario();
+    const costoTotal = calcularCostoTotal(productosSeleccionados);
+    mostrarResultado(costoTotal);
+});
