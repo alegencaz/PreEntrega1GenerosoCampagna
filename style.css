@@ -2,55 +2,115 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family:'Courier New', Courier, monospace
 }
+
+body {
+    background-color: #fff; /* Blanco */
+    color: #131212; /* Negro */
+}
+
+/* darkmode */
+body.dark-mode {
+    background-color: #1b1b1b; 
+    color: #fff; 
+}
+
+#modoOscuro {
+    display: block;
+    margin: 10px auto;
+    padding: 10px;
+    background-color: #ff6e40; 
+    color: #fff; 
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
 
 h1 {
     text-align: center;
     padding: 20px;
-    background-color: #4160ea;
+    background-color: #ff6e40; 
     color: #fff;
 }
 
 h2 {
     text-align: center;
     padding: 20px;
-    color: #020000;
+    color: #ffffff;
 }
 
-form {
+.card {
     max-width: 400px;
     margin: 0 auto;
     padding: 20px;
     border: 1px solid #ddd;
     border-radius: 5px;
+    margin-bottom: 20px;
+    background-color: #f0f0f0; 
 }
 
-label, input {
-    display: block;
+.card h2 {
+    color: #020000;
+}
+
+.card p {
+    color: #020000;
     margin-bottom: 10px;
 }
 
-input[type="number"] {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-}
-
-button {
+.add-to-cart {
     display: block;
     width: 100%;
     padding: 10px;
-    background-color: #3569db;
+    background-color: #ff6e40; 
     color: #fff;
     border: none;
     border-radius: 5px;
     cursor: pointer;
 }
 
-#resultado {
-    text-align: center;
+#cart {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f0f0f0; 
     margin-top: 20px;
+}
+
+#cart h2 {
+    color: #020000; 
+}
+
+#cart-items {
+    list-style: none;
+}
+
+#cart-items li {
+    margin-bottom: 10px;
+    color: #020000;
+}
+
+#total {
+    text-align: right;
+    font-weight: bold;
     font-size: 18px;
+    margin-top: 10px;
+    color: #020000;
+}
+
+#checkout,
+#clear-cart {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #ff6e40; 
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
 }
